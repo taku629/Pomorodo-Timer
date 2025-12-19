@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI猫ポモドーロ</title>
+    </head>
+  <body>
+    <div id="app">
+      <h2 id="status">準備はいいニャ？</h2>
+      
+      <img id="cat-image" src="/work_cat.jpg" style="width: 100%; max-width: 350px; height: auto; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+      
+      <div id="timer" style="font-size: 64px; font-weight: bold; margin: 20px 0;">25:00</div>
+      
+      <div class="inputs" style="margin-bottom: 20px;">
+        作業: <input type="number" id="work-time" value="25" style="width: 50px; padding: 5px;"> 分 / 
+        休憩: <input type="number" id="break-time" value="5" style="width: 50px; padding: 5px;"> 分
+      </div>
+
+      <button id="start-btn" style="padding: 12px 30px; font-size: 18px; cursor: pointer; background-color: #4caf50; color: white; border: none; border-radius: 8px;">スタート！</button>
+
+      <div id="task-log" style="margin-top: 30px; text-align: left; max-width: 350px; margin-left: auto; margin-right: auto; border-top: 1px solid #ddd; padding-top: 10px;">
+        <h3>今日の記録ニャ</h3>
+        <div id="log-list"></div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

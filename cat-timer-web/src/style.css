@@ -1,96 +1,74 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+/* 画面全体の設定 */
+html, body {
   margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #fefaf1;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
+/* アプリ全体の枠（ここを大きくします） */
 #app {
-  max-width: 1280px;
+  width: 95%;          /* 画面の横幅95%を使う */
+  max-width: 1000px;   /* 最大1000pxまで広がるように設定 */
   margin: 0 auto;
-  padding: 2rem;
+  padding: 40px;
+  background: white;   /* 枠を白くして目立たせる */
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   text-align: center;
+  box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
+/* 状態テキスト */
+#status {
+  font-size: 2rem;     /* 文字を大きく */
+  color: #555;
+  margin-bottom: 20px;
 }
 
-.card {
-  padding: 2em;
+/* 猫の画像（ここが一番大事！） */
+#cat-image {
+  width: 100%;         /* 枠いっぱいに広げる */
+  max-width: 800px;    /* 画像の最大サイズを大幅アップ */
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
 }
 
-.read-the-docs {
-  color: #888;
+/* タイマーの数字（巨大化） */
+#timer {
+  font-size: 10rem;    /* 5から10へ！倍のサイズ */
+  font-weight: bold;
+  color: #e67e22;
+  margin: 20px 0;
+  font-family: 'Courier New', monospace;
+  line-height: 1;
 }
 
+/* 入力エリア */
+.inputs {
+  font-size: 1.5rem;   /* 入力欄の周りの文字も大きく */
+  margin-bottom: 30px;
+}
+
+input {
+  width: 80px;         /* 入力ボックスも大きく */
+  padding: 10px;
+  font-size: 1.5rem;
+  border-radius: 10px;
+}
+
+/* ボタン（押しやすく大きく） */
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  padding: 20px 60px;
+  font-size: 2rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 60px;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+  box-shadow: 0 6px 0 #388e3c;
 }

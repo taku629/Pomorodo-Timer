@@ -16,16 +16,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
-          # ここで package-lock.json の場所を正確に教える
-          cache-dependency-path: cat-timer-web/package-lock.json
+          # キャッシュを一度無効にして確実にインストールさせる
+          # cache: 'npm' 
 
-      - name: Install and Build
-        # 「フォルダに移動」→「インストール」→「ビルド」を一気に行う
+      - name: Install dependencies and Build
+        # working-directory を指定して、確実にフォルダ内で実行する
+        working-directory: cat-timer-web
         run: |
-          cd cat-timer-web
           npm install
-          npm run build
+          npx vite build  # npm run build の代わりに npx を使うとより確実です
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4

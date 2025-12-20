@@ -16,18 +16,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          # キャッシュを一度無効にして確実にインストールさせる
-          # cache: 'npm' 
 
-      - name: Install dependencies and Build
-        # working-directory を指定して、確実にフォルダ内で実行する
-        working-directory: cat-timer-web
+      - name: Install and Build
+        # サブフォルダに移動して、確実にその中で全ての作業を行う
         run: |
+          cd cat-timer-web
           npm install
-          npx vite build  # npm run build の代わりに npx を使うとより確実です
+          npm run build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          # ビルド結果が生成される場所を正確に指定
           folder: cat-timer-web/dist
           branch: gh-pages

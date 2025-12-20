@@ -18,7 +18,6 @@ jobs:
           node-version: 20
 
       - name: Install and Build
-        # サブフォルダに移動して、確実にその中で全ての作業を行う
         run: |
           cd cat-timer-web
           npm install
@@ -27,6 +26,5 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          # ビルド結果が生成される場所を正確に指定
           folder: cat-timer-web/dist
           branch: gh-pages

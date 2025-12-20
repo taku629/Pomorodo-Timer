@@ -18,9 +18,9 @@ jobs:
           node-version: 20
 
       - name: Install and Build
-        # サブフォルダ cat-timer-web の中で全作業を行う
-        working-directory: cat-timer-web
+        # working-directoryは使わず、runの中で明示的に移動して実行
         run: |
+          cd cat-timer-web
           npm install
           npm run build
 

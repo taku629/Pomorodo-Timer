@@ -11,6 +11,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # パスが二重になるのを防ぐため、展開先を明示的に指定しない（デフォルトを使用）
+          path: '' 
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -18,7 +21,7 @@ jobs:
           node-version: 20
 
       - name: Install and Build
-        # working-directoryは使わず、runの中で明示的に移動して実行
+        # 変数を使わず、単純にフォルダへ移動して実行するのが一番安全です
         run: |
           cd cat-timer-web
           npm install
@@ -27,5 +30,6 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          # ビルド結果の場所を正確に指定
           folder: cat-timer-web/dist
           branch: gh-pages

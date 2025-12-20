@@ -18,13 +18,15 @@ jobs:
           node-version: 20
 
       - name: Install and Build
+        # 「今の場所にある cat-timer-web に入る」と明示的に指示
         run: |
-          cd cat-timer-web
+          cd $GITHUB_WORKSPACE/cat-timer-web
           npm install
           npm run build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          # ここも場所を正確に指定
           folder: cat-timer-web/dist
           branch: gh-pages
